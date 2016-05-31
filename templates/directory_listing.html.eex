@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+  <title>Directory listing for <%= path %></title>
+  <body>
+    <h2>Directory listing for <%= path %></h2>
+    <hr>
+    <ul>
+      <%= for child <- children do %>
+        <li><a href="<%= Path.join(path, child) %>"><%= child %></a>
+      <% end %>
+    </ul>
+    <hr>
+  </body>
+</html>
