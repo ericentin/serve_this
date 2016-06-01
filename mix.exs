@@ -8,7 +8,9 @@ defmodule ServeThis.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps,
-     escript: escript]
+     escript: escript,
+     description: description,
+     package: package]
   end
 
   def application do
@@ -25,5 +27,20 @@ defmodule ServeThis.Mixfile do
 
   defp escript do
     [main_module: ServeThis]
+  end
+
+  defp description do
+    "An escript that serves the current directory over HTTP."
+  end
+
+  defp package do
+    [
+      files: ["lib", "templates", "mix.exs", "README.md", "LICENSE"],
+      maintainers: ["Eric Entin"],
+      licenses: ["Apache 2.0"],
+      links: %{
+        "GitHub" => "https://github.com/antipax/serve_this"
+      }
+    ]
   end
 end
