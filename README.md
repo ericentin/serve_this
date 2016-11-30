@@ -12,6 +12,10 @@ know if it works for you!
 
 ## Installation
 
+If you have Elixir 1.4 or above,
+
+`mix escript.install hex serve_this`
+
 If you have Elixir 1.3 or above,
 
 `mix escript.install https://raw.githubusercontent.com/antipax/serve_this/master/serve_this`
