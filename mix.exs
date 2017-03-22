@@ -3,14 +3,14 @@ defmodule ServeThis.Mixfile do
 
   def project do
     [app: :serve_this,
-     version: "1.0.0",
+     version: "1.0.1",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps,
-     escript: escript,
-     description: description,
-     package: package]
+     deps: deps(),
+     escript: escript(),
+     description: description(),
+     package: package()]
   end
 
   def application do
@@ -20,7 +20,7 @@ defmodule ServeThis.Mixfile do
 
   defp deps do
     [
-      {:cowboy, "~> 1.0.0"},
+      {:cowboy, "~> 1.0"},
       {:plug, "~> 1.0"}
     ]
   end
