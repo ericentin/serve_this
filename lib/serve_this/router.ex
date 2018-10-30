@@ -3,12 +3,12 @@ defmodule ServeThis.Router do
 
   template_path = Path.join([__DIR__, "..", "..", "templates", "directory_listing.html.eex"])
   require EEx
-  EEx.function_from_file :defp, :directory_listing, template_path, [:path, :children]
+  EEx.function_from_file(:defp, :directory_listing, template_path, [:path, :children])
 
-  plug Plug.Logger
-  plug Plug.Static, from: ".", at: "/"
-  plug :match
-  plug :dispatch
+  plug(Plug.Logger)
+  plug(Plug.Static, from: ".", at: "/")
+  plug(:match)
+  plug(:dispatch)
 
   get "/*path" do
     file_path =

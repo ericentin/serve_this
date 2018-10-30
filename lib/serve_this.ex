@@ -5,7 +5,7 @@ defmodule ServeThis do
     import Supervisor.Spec, warn: false
 
     children = [
-      Plug.Adapters.Cowboy.child_spec(:http, ServeThis.Router, [], [port: port()])
+      {Plug.Cowboy, scheme: :http, plug: ServeThis.Router, options: [port: port()]}
     ]
 
     opts = [strategy: :one_for_one, name: ServeThis.Supervisor]
@@ -13,7 +13,7 @@ defmodule ServeThis do
   end
 
   def main(_args) do
-    IO.puts "Serving HTTP on port #{port()}..."
+    IO.puts("Serving HTTP on port #{port()}...")
 
     :timer.sleep(:infinity)
   end
